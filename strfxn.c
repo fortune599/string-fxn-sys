@@ -43,6 +43,14 @@ int mycmp(char * s1, char * s2){
   else return mycmp(++s1, ++s2);
 }
 
+char * mychr(char *s, char c){
+  while (!(c==*s) && *s){
+    s++;
+  }
+  if (!*s) return NULL;
+  return s;
+}
+
 int main(){
   char a[] = "horseman";
   mycpy(a, "goose");
@@ -54,5 +62,9 @@ int main(){
 
   char c[] = "goose";
   printf("comp test: %d\n", mycmp(c, "moose"));
+  
+  printf("strchr locate: %p\n", strchr(c, 'o'));
+  printf("my locate: %p\n", mychr(c, 'o'));
+  
   return 0;
 }
